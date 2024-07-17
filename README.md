@@ -50,11 +50,8 @@ The model is trained on the Floodnet dataset. You can download the dataset from 
 
 
 ## Results
-The model achieves an accuracy of XX% on the validation set. Below are some example results from the model:
-
-![Example Image](results/example1.jpg)
-![Example Image](results/example2.jpg)
-
+The model achieves an accuracy of 80% on the test set. Below are some example results from the model:
+![image](https://github.com/user-attachments/assets/4be77119-896b-4b44-8bd9-32cab05f81a9)
 
 The Streamlit app provides an interface to upload images and view the segmentation results in real-time.
 
