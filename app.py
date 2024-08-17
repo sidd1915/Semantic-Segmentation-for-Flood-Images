@@ -4,15 +4,19 @@ import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import cv2
+import os
+
+results_dir = "Results"
+file_names = ["test1.png", "test2.png", "test3.png"]
 
 # Define your color map for classes
 color_map = {
     0: [255, 255, 255],    # Class 0: White
     1: [255, 0, 0],        # Class 1: Red
     2: [0, 255, 0],        # Class 2: Green
-    3: [0, 0, 255],        # Class 3: Blue
+    3: [0, 0, 255],      # Class 3: Cyan
     4: [255, 255, 0],      # Class 4: Yellow
-    5: [0, 255, 255],      # Class 5: Cyan
+    5: [0, 255, 255],        # Class 5: Blue
     6: [0, 128, 0],        # Class 6: Dark Green
     7: [128, 0, 128],      # Class 7: Purple
     8: [0, 128, 128],      # Class 8: Teal
@@ -32,7 +36,7 @@ class_names = {
     9: 'Grass'
 }
 
-model = tf.keras.models.load_model('floodnet_model_25.h5', compile=False)
+model = tf.keras.models.load_model('floodnet_model.h5', compile=False)
 
 def display_color_map_legend():
     
@@ -87,10 +91,45 @@ def segment_image(image):
 
     return rgb_image
 
+def apply_color_map(mask, color_map):
+    mask_np = np.array(mask)
+    colored_mask = np.zeros((*mask_np.shape, 3), dtype=np.uint8)
+
+    for class_index, color in color_map.items():
+        colored_mask[mask_np == class_index] = color
+    
+    return Image.fromarray(colored_mask)
+
+def load_image(file_name):
+    input_image = Image.open(os.path.join(results_dir, file_name))
+    ground_truth = Image.open(os.path.join(results_dir, file_name.replace('test', 'label')))
+    predicted = Image.open(os.path.join(results_dir, file_name.replace('test', 'result')))
+
+    # Apply color map
+    ground_truth_colored = apply_color_map(ground_truth, color_map)
+    
+    return input_image, ground_truth_colored, predicted
+    
+
 # Streamlit UI
 def main():
-    st.title("Semantic Segmentation Web App")
-    st.sidebar.title("Options")
+    st.title("Post-Disaster Assessment using Segmentation")
+
+    if st.sidebar.button("Demonstrations"):
+        # Create columns
+        cols = st.columns(3)
+    
+        for i, file_name in enumerate(file_names):
+            # Load images
+            input_image, ground_truth_colored, predicted_colored = load_image(file_name)
+        
+            with cols[i]:
+                st.subheader(f"Test {i+1}")
+                st.image(input_image, caption="Input Image", use_column_width=True)
+                st.image(ground_truth_colored, caption="Ground Truth", use_column_width=True)
+                st.image(predicted_colored, caption="Prediction", use_column_width=True)
+
+    st.sidebar.title("Color Map")
     
     display_color_map_legend()
 
@@ -109,6 +148,8 @@ def main():
             img_array = np.array(image)      
             segmented_image = segment_image(img_array)
             st.image(segmented_image, caption='Segmented Image.', use_column_width=True)
+    
+    
 
 if __name__ == '__main__':
     main()
