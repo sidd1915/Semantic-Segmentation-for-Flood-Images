@@ -1,6 +1,4 @@
-#SEMANTIC SEGMENTATION OF DRONE CAPTURED IMAGES TO IMPROVE DISASTER MANAGEMENT
-
-# Semantic Segmentation for Flood Images
+# SEMANTIC SEGMENTATION OF DRONE UAV IMAGES TO IMPROVE POST-DISASTER MANAGEMENT
 
 Semantic segmentation of drone UAV images to improve disaster management by detecting and segmenting flood-affected areas. The model is trained on the Floodnet dataset.
 
@@ -10,7 +8,6 @@ Semantic segmentation of drone UAV images to improve disaster management by dete
 - [Usage](#usage)
 - [Dataset](#dataset)
 - [Results](#results)
-- [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 
@@ -46,12 +43,15 @@ To get started with this project, follow these steps:
 
 
 ## Dataset
-The model is trained on the Floodnet dataset. You can download the dataset from [Floodnet Dataset]([https://floodnet.org/dataset](https://www.dropbox.com/scl/fo/k33qdif15ns2qv2jdxvhx/ANGaa8iPRhvlrvcKXjnmNRc?rlkey=ao2493wzl1cltonowjdbrnp7f&e=3&dl=0)). Please also refer to the research paper [paper](https://ieeexplore.ieee.org/document/9460988) 
+The model is trained on the Floodnet dataset. You can download the dataset from [Floodnet Dataset]([https://floodnet.org/dataset](https://www.dropbox.com/scl/fo/k33qdif15ns2qv2jdxvhx/ANGaa8iPRhvlrvcKXjnmNRc?rlkey=ao2493wzl1cltonowjdbrnp7f&e=3&dl=0)). Please also refer to the research paper [paper](https://ieeexplore.ieee.org/document/9460988) .
 
 
 ## Results
-The model achieves an accuracy of 80% on the test set. Below are some example results from the model:
+We used Iou per each class to measure the accuracy of our model. Below are some example results from the model:
+![image](https://github.com/user-attachments/assets/12bb5d4d-0ef7-4ced-b0b2-5edb5640f79e)
 ![image](https://github.com/user-attachments/assets/4be77119-896b-4b44-8bd9-32cab05f81a9)
+![image](https://github.com/user-attachments/assets/2b35f19d-62fd-48ed-ba63-b4faded02d96)
+
 
 The Streamlit app provides an interface to upload images and view the segmentation results in real-time.
 
