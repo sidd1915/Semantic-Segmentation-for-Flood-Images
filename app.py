@@ -32,7 +32,7 @@ class_names = {
     9: 'Grass'
 }
 
-model = tf.keras.models.load_model('floodnet_model.h5', compile=False)
+model = tf.keras.models.load_model('floodnet_model_25.h5', compile=False)
 
 def display_color_map_legend():
     
