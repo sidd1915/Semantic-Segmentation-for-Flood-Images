@@ -4,8 +4,7 @@ Semantic segmentation of drone UAV images to improve disaster management by dete
 
 ## Table of Contents
 - [Project Description](#project-description)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Live Demonstration](#demonstration)
 - [Dataset](#dataset)
 - [Results](#results)
 - [License](#license)
@@ -14,32 +13,9 @@ Semantic segmentation of drone UAV images to improve disaster management by dete
 ## Project Description
 This project aims to enhance disaster management by using a deep learning model to perform semantic segmentation on drone images. The model helps in identifying and segmenting flood-affected areas, providing valuable information for response and recovery efforts. It can classify the given image into 10 classes - ('Background':0, 'Building-flooded':1, 'Building-non-flooded':2, 'Road-flooded':3, 'Road-non-flooded':4, 'Water':5, 'Tree':6, 'Vehicle':7, 'Pool':8, 'Grass':9)
 
-## Installation
-To get started with this project, follow these steps:
-
-1. **Clone the repository**
-    ```bash
-    git clone https://github.com/sidd1915/Semantic-Segmentation-for-Flood-Images.git
-    ```
-
-2. **Install the required dependencies**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-## Usage
-1. **Navigate to the project directory**
-    ```bash
-    cd semantic-segmentation-flood-images
-    ```
-
-2. **Run the Streamlit app**
-    ```bash
-    streamlit run app.py
-    ```
-
-3. **Access the app**
-    - Open your web browser and go to `http://localhost:8501`
+## Demonstration
+The Streamlit app provides an interface to upload images and view the segmentation results in real-time.
+Streamlit Demonstration - [Click here](https://floodnet-implementation.streamlit.app/)
 
 
 ## Dataset
@@ -47,13 +23,8 @@ The model is trained on the Floodnet dataset. You can download the dataset from 
 
 
 ## Results
-We used Iou per each class to measure the accuracy of our model. Below are some example results from the model:
-![image](https://github.com/user-attachments/assets/12bb5d4d-0ef7-4ced-b0b2-5edb5640f79e)
-![image](https://github.com/user-attachments/assets/4be77119-896b-4b44-8bd9-32cab05f81a9)
-![image](https://github.com/user-attachments/assets/2b35f19d-62fd-48ed-ba63-b4faded02d96)
-
-
-The Streamlit app provides an interface to upload images and view the segmentation results in real-time.
+We used Iou per each class to measure the accuracy of our model. 
+<img width="578" alt="image" src="https://github.com/user-attachments/assets/19fbb2d7-fa5b-42d6-ba59-b00aa9d5d581">
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
