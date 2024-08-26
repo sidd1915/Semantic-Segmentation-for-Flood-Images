@@ -1,6 +1,4 @@
-keras @ file:///C:/Users/builder/adipietro/mc3/tf210/conda-bld/keras_1669760570649/work/keras-2.10.0-py2.py3-none-any.whl
-Keras-Preprocessing @ file:///tmp/build/80754af9/keras-preprocessing_1612283640596/work
-streamlit @ file:///C:/b/abs_12o66j0das/croot/streamlit_1710262558078/work
+Pillow==10.4.0
+streamlit==1.32.0
+pandas==2.2.2
 tensorflow==2.10.0
-tensorflow-io-gcs-filesystem==0.31.0
-
